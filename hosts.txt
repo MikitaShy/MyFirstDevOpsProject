@@ -1,0 +1,1 @@
+Centos  ansible_host=10.0.0.120  ansible_user=vagrant   ansible_password=vagrant
