@@ -1,0 +1,99 @@
+
+Обещанная доп. информация и пару простых заданий.
+Цель: ознакомление с основными инструментами.
+
+Инструменты:
+1. GIT
+- https://www.youtube.com/watch?v=DK2PsTcSFFM&list=PLg5SS_4L6LYstwxTEOU05E0URTHnbtA0l
+- https://learngitbranching.js.org/
+2. Vagrant
+- https://khashtamov.com/ru/vagrant-how-to-setup/
+- https://www.youtube.com/watch?v=itHHP8d1kT8
+- https://www.youtube.com/watch?v=lgeY66i14bY
+- https://www.youtube.com/watch?v=gumSW5eNm_0&list=PLxoOrmZMsAWw2tUwrmB7QeniRxVzvEhkS
+3. Ansible
+- https://habr.com/ru/post/305400/
+- https://tproger.ru/translations/ansible-how-to-use/
+- https://www.youtube.com/watch?v=Ck1SGolr6GI&list=PLg5SS_4L6LYufspdPupdynbMQTBnZd31N
+- https://www.youtube.com/watch?v=2p8y9wdsvVE
+- https://www.youtube.com/watch?v=IWxPJrelh5w
+- https://www.youtube.com/watch?v=4QSyR0PcIR0&list=PLah0HUih_ZRnuI_K5-GV4FdAO9dVkRIGF
+4. Jenkins
+- https://wiki.merionet.ru/servernye-resheniya/28/razbiraemsya-s-jenkins-chto-eto/
+- https://habr.com/ru/company/selectel/blog/339390/
+- https://habr.com/ru/company/ruvds/blog/522334/
+- https://www.youtube.com/watch?v=7SM8GLArTDY&list=PLmxB7JSpraiew9igtD89o33AaniUrmUzm
+- https://www.youtube.com/watch?v=cyb10iplv7U&list=PLg5SS_4L6LYvQbMrSuOjTL1HOiDhUE_5a
+- https://techrocks.ru/2019/03/11/10-continuous-integration-systems/
+5. Docker
+- https://habr.com/ru/post/346634/
+- https://habr.com/ru/post/310460/
+- https://www.youtube.com/watch?v=I18TNwZ2Nqg
+- https://www.youtube.com/watch?v=wi-MGFhrad0&list=PLhW3qG5bs-L99pQsZ74f-LC-tOEsBp2rK
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Задачи:
+- все задачи подразумевает работу с Двумя(разными типами) ОС:
+1. Debian(например Ubuntu)
+2. Red Hat(например Centos)
+- На локальной машине должен быть установлен VirtualBox
+- На локальной машине должен быть установлен GIT
+- Весь инфраструктурный код должен храниться в Git(у всех нас есть возможность завести свой репозиторий(2 штуки) на NC сервере) или можно использовать свой личный(завести новый) на GitHub
+1. При помощи Vagrant научится поднимать ОС и ставить минимальный ПО(например VIM, MC)
+2. На виртуальной машине поднять(установить) ручками Jenkins сервер:
+- создать несколько простых джоб через UI (например пинг хостов и проверка имени хоста )
+- создать несколько простых джоб при помощи Groovy(например установка Apache2)
+- сделать чтоб при коммите в GIT запускалась любая из джоб + 2я джоба запускалась периодически(по расписанию).
+3. Установить Ansible(можно на винду локально или на Вашу основную рабочую виртуалку). Написать несколько простых плейбуков
+- пинг всех хостов
+- вывод имени хоста
+- ребут хостов, с ожиданием поднятия хоста
+- Создать пользователя, создать ключи для этого пользователя.
+- установка(подготовка хоста) простейшего набора пакетов/по:
+- ssh
+- python-pip
+- mc
+- vim
+- net-tools
+- curl
+- zip
+- git
+- wget
+- можно все эти плейбуки оформить в виде ролей, для более удобного вызова.
+4. Установить Docker локально или на виртуалку. Написать, простейший Dockerfile с Nginx/Apache2 и сделать так чтоб зайдя на IP:8080 можно было увидеть "Hi, I am done. All works!!!"
+----
+Финальная Задача =)):
+5. Попробовать обьеденить все изученные инструменты и выстроить пайплайн.
+5.0 Все лежит и управляется через Git.
+5.1 При помощи Vagrant поднять 2 чистые машины(Ubuntu/Centos).
+5.2 При помощи Ansible определить что за OC и поставить туда мин. набор ПО + вебсервер(например Ubuntu-Nginx/Centos-Apache2).
+5.3 Написать джобу в Jenkins, которая будет ходить на вебсервер и будет говорить нам работает он или нет, джоба должна сказать например "Web Server Nginx on Ubuntu: WORKS!"
+
+*** Задача со звездочкой:
+Запихнуть все это дело из "5" в контейнеры и используя Docker(Docker Compose) поднять все в контейнерах.
+т.е.
+- Vagrant поднять виртуалку
+- Ansible - определить ОС, создать пользователя(ходить только по SSH и под созданным пользователем), поставить мин. набор ПО, поставить Docker, скопировать из Git Dockerfile.
+- поднять в Docker Jenkins и Nginx
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Инфа:
+- https://www.youtube.com/channel/UC-sAMvDe7gTmBbub-rWljZg  --- Весьма неплохой канал, много разной информации.
+- https://www.youtube.com/playlist?list=PLrCZzMib1e9rx3HmaLQfLYb9ociIvYOY1 --- Linux
+
+Видео по ДевОпс:
+1. https://www.youtube.com/watch?v=nrr4IwOVhZk&list=PLV0NqJZQ2tyzH1u4y7X3zz425Z93xXUyK&index=2&t=5634s  -- Весьма подробно и неплохо, там же есть рекомендации по книгам
+2. https://www.youtube.com/watch?v=YxSYMRLmwDk&list=PLV0NqJZQ2tyzH1u4y7X3zz425Z93xXUyK&index=13&t=128s -- Так же неплохая вводная лекции,
+3. https://www.youtube.com/watch?v=LSgmwgSbGjQ&list=PLmxB7JSpraieS8C58ewR7fdTu5fS3z7HG -- Тут больше практик + основы, можно потыкать
+
+Книги:
+1. "Проект «Феникс». Роман о том, как DevOps меняет бизнес к лучшему" -- Это скорее "роман", но читается очень легко и главное рассказывает на примерах что их себя представляет методология ДевОпс
+2. «Философия DevOps. Искусство управления IT» — Дженнифер Дэвис
+3. "Код" - Чарльз Петцольд
+4. «Continuous delivery. Практика непрерывных апдейтов» — Эберхард Вольф
+5. «Руководство по DevOps» — Джин Ким, Патрик Дебуа, Джон Уиллис и Джез Хамбл
+6. «Site Reliability Engineering. Надежность и безотказность как в Google» — Бетси Бейер, Крис Джоунс, Дженнифер Петофф
+
+Статьи:
+1. https://dou.ua/lenta/articles/senior-devops/
+2. https://proglib.io/p/become-devops-engineer/
+3. https://proglib.io/p/devops-questions/
